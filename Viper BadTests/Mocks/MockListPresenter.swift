@@ -25,3 +25,5 @@ class MockInteractorToPresenterProtocol: InteractorToPresenterProtocol {
         getAllCharactersErrorCount += 1
     }
 }
+
+

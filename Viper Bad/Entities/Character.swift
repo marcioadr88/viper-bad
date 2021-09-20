@@ -20,3 +20,9 @@ struct Character: Codable {
         case name, birthday, occupation, img, status, nickname, appearance, portrayed, category
     }
 }
+
+extension Character: Equatable {
+    static func == (lhs: Character, rhs: Character) -> Bool {
+        return lhs.id == rhs.id
+    }
+}

@@ -47,3 +47,24 @@ extension AppError: LocalizedError {
         }
     }
 }
+
+extension AppError: Equatable {
+    static func ==(lhs: AppError, rhs: AppError) -> Bool {
+        switch (lhs, rhs) {
+        case (.invalidBaseURL, .invalidBaseURL):
+            return true
+        case (.invalidEndpoindURL, .invalidEndpoindURL):
+            return true
+        case (let .networkError(lhsCause), let .networkError(rhsCause)):
+            return lhsCause.localizedDescription == rhsCause.localizedDescription
+        case (let .decodingError(lhsCause), let .decodingError(rhsCause)):
+            return lhsCause.localizedDescription == rhsCause.localizedDescription
+        case (let .databaseError(lhsCause), let .databaseError(rhsCause)):
+            return lhsCause.localizedDescription == rhsCause.localizedDescription
+        case (let .apiError(lhsMessage), let .apiError(rhsMessage)):
+            return lhsMessage == rhsMessage
+        default:
+            return false
+        }
+    }
+}

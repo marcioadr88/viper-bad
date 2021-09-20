@@ -10,6 +10,9 @@
 		0A22451426F8DE12004D4C3D /* MockListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A22451326F8DE12004D4C3D /* MockListInteractor.swift */; };
 		0A22451626F8E190004D4C3D /* MockListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A22451526F8E190004D4C3D /* MockListPresenter.swift */; };
 		0A22451B26F8E519004D4C3D /* InteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A22451A26F8E519004D4C3D /* InteractorTests.swift */; };
+		0A22451D26F90876004D4C3D /* PresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A22451C26F90876004D4C3D /* PresenterTests.swift */; };
+		0A22451F26F9091D004D4C3D /* MockListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A22451E26F9091D004D4C3D /* MockListView.swift */; };
+		0A22452126F92BE1004D4C3D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A22452026F92BE1004D4C3D /* Constants.swift */; };
 		0A5CA13C26F14FD700AD7A8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5CA13B26F14FD700AD7A8A /* AppDelegate.swift */; };
 		0A5CA13E26F14FD700AD7A8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5CA13D26F14FD700AD7A8A /* SceneDelegate.swift */; };
 		0A5CA14026F14FD700AD7A8A /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5CA13F26F14FD700AD7A8A /* CharactersListViewController.swift */; };
@@ -52,6 +55,9 @@
 		0A22451326F8DE12004D4C3D /* MockListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockListInteractor.swift; sourceTree = "<group>"; };
 		0A22451526F8E190004D4C3D /* MockListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockListPresenter.swift; sourceTree = "<group>"; };
 		0A22451A26F8E519004D4C3D /* InteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorTests.swift; sourceTree = "<group>"; };
+		0A22451C26F90876004D4C3D /* PresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterTests.swift; sourceTree = "<group>"; };
+		0A22451E26F9091D004D4C3D /* MockListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockListView.swift; sourceTree = "<group>"; };
+		0A22452026F92BE1004D4C3D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0A5CA13826F14FD700AD7A8A /* Viper Bad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Viper Bad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A5CA13B26F14FD700AD7A8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A5CA13D26F14FD700AD7A8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,8 +151,9 @@
 		0A5CA15126F14FDB00AD7A8A /* Viper BadTests */ = {
 			isa = PBXGroup;
 			children = (
+				0A22452026F92BE1004D4C3D /* Constants.swift */,
 				0A81D95B26F3EDD6004BE1F3 /* Mocks */,
-				0A81D95A26F3EDA9004BE1F3 /* Repository */,
+				0A81D95A26F3EDA9004BE1F3 /* List Tests */,
 				0A5CA15426F14FDB00AD7A8A /* Info.plist */,
 			);
 			path = "Viper BadTests";
@@ -206,13 +213,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		0A81D95A26F3EDA9004BE1F3 /* Repository */ = {
+		0A81D95A26F3EDA9004BE1F3 /* List Tests */ = {
 			isa = PBXGroup;
 			children = (
 				0A81D95E26F3EF07004BE1F3 /* RepositoryTests.swift */,
 				0A22451A26F8E519004D4C3D /* InteractorTests.swift */,
+				0A22451C26F90876004D4C3D /* PresenterTests.swift */,
 			);
-			path = Repository;
+			path = "List Tests";
 			sourceTree = "<group>";
 		};
 		0A81D95B26F3EDD6004BE1F3 /* Mocks */ = {
@@ -222,6 +230,7 @@
 				0A81D95C26F3EDE8004BE1F3 /* MockBreakingBadRepository.swift */,
 				0A22451326F8DE12004D4C3D /* MockListInteractor.swift */,
 				0A22451526F8E190004D4C3D /* MockListPresenter.swift */,
+				0A22451E26F9091D004D4C3D /* MockListView.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -377,10 +386,13 @@
 			files = (
 				0A22451426F8DE12004D4C3D /* MockListInteractor.swift in Sources */,
 				0A22451626F8E190004D4C3D /* MockListPresenter.swift in Sources */,
+				0A22451D26F90876004D4C3D /* PresenterTests.swift in Sources */,
 				0A22451B26F8E519004D4C3D /* InteractorTests.swift in Sources */,
 				0A81D95D26F3EDE8004BE1F3 /* MockBreakingBadRepository.swift in Sources */,
 				0A81D95926F3E9A1004BE1F3 /* MockBreakingBadAPIClient.swift in Sources */,
+				0A22451F26F9091D004D4C3D /* MockListView.swift in Sources */,
 				0A81D95F26F3EF07004BE1F3 /* RepositoryTests.swift in Sources */,
+				0A22452126F92BE1004D4C3D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

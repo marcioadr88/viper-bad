@@ -37,7 +37,7 @@ class RepositoryTests: XCTestCase {
             }
             
             XCTAssertTrue(!characters.isEmpty, "Characters result is empty")
-            XCTAssertTrue(characters.count == mockCharactersList.count, "The returned character list is not equal")
+            XCTAssertEqual(characters, testCharactersList, "The returned character list is not equal")
         }
     }
     
@@ -69,7 +69,7 @@ class RepositoryTests: XCTestCase {
             }
             
             XCTAssertTrue(!characters.isEmpty, "Characters result is empty")
-            XCTAssertTrue(characters.count == mockCharactersList.count, "The returned character list is not equal")
+            XCTAssertEqual(characters, testCharactersList, "The returned character list is not equal")
         }
     }
     

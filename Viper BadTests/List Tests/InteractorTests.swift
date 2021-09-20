@@ -31,7 +31,7 @@ class InteractorTests: XCTestCase {
         interactor.getAllCharacters()
         
         XCTAssertEqual(presenter.getAllCharactersSuccessCount, 1, "Expect getAllCharactersSuccess called once")
-        XCTAssertEqual(presenter.characters?.count, mockCharactersList.count, "Ouput doesn't contain expected elements count")
+        XCTAssertEqual(presenter.characters, testCharactersList, "Ouput doesn't contain expected elements")
     }
     
     func testGetAllCharactersFailure() throws {
