@@ -8,7 +8,7 @@
 import XCTest
 @testable import Viper_Bad
 
-class RepositoryTest: XCTestCase {
+class RepositoryTests: XCTestCase {
     var apiClient: BreakingBadAPIClient?
     var emptyApiClient: BreakingBadAPIClient?
     var failureApiClient: BreakingBadAPIClient?
@@ -22,9 +22,9 @@ class RepositoryTest: XCTestCase {
         emptyApiClient = EmptyBreakingBadAPIClient()
         failureApiClient = FailureBreakingBadAPIClient()
         
-        apiRepository = MockBreakingBadAPIRepository(apiClient: apiClient!)
-        emptyApiRepository = MockBreakingBadAPIRepository(apiClient: emptyApiClient!)
-        failureApiRepository = MockBreakingBadAPIRepository(apiClient: failureApiClient!)
+        apiRepository = BreakingBadNetworkRepository(apiClient: apiClient!)
+        emptyApiRepository = BreakingBadNetworkRepository(apiClient: emptyApiClient!)
+        failureApiRepository = BreakingBadNetworkRepository(apiClient: failureApiClient!)
     }
     
     override func tearDown() {}
