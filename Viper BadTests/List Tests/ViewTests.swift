@@ -18,7 +18,7 @@ class ViewTests: XCTestCase {
         view = CharactersListViewController.instantiate()
         view.presenter = presenter
         
-        view.loadView()
+        let _ = view.view // in order to invoke view.loadView()
     }
     
     func testShowCharacters() {
