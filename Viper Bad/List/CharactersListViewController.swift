@@ -22,10 +22,13 @@ class CharactersListViewController: UIViewController, PresenterToViewProtocol {
         super.viewDidLoad()
         
         navigationItem.title = NSLocalizedString("Breaking Viper", comment: "App title")
-        
-        presenter?.getAllCharacters()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.getAllCharacters()
+    }
+    
     func showCharacters(characters: [Character]) {
         updateCharactersTableView(with: characters)
     }
@@ -66,5 +69,18 @@ extension CharactersListViewController: UITableViewDataSource {
 }
 
 extension CharactersListViewController {
+    static func instantiate() -> CharactersListViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: storyboardIdentifier) as? CharactersListViewController else {
+            fatalError(NSLocalizedString("Cannot initialize CharactersListViewController", comment: ""))
+        }
+        
+        return viewController
+    }
+}
+
+extension CharactersListViewController {
     private static let reuseCellId = "CharacterCell"
+    private static let storyboardIdentifier = "CharactersListViewController"
 }

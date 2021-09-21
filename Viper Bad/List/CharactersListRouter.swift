@@ -10,12 +10,7 @@ import UIKit
 
 class CharactersListRouter: PresenterToRouterProtocol {
     static var module: UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        guard let view = storyboard.instantiateViewController(withIdentifier: "CharactersListViewController") as? CharactersListViewController else {
-            fatalError(NSLocalizedString("Cannot initialize CharactersListViewController", comment: ""))
-        }
-        
+        let view = CharactersListViewController.instantiate()
         let presenter: ViewToPresenterProtocol & InteractorToPresenterProtocol = CharactersListPresenter()
         let interactor: PresenterToInteractorProtocol = CharactersListInteractor(repository: CharactersListRouter.breakingBadRespository)
         let router: PresenterToRouterProtocol = CharactersListRouter()

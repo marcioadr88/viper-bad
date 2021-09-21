@@ -26,4 +26,16 @@ class MockInteractorToPresenterProtocol: InteractorToPresenterProtocol {
     }
 }
 
+class MockViewToPresenterProtocol: ViewToPresenterProtocol {
+    var view: PresenterToViewProtocol?
+    var interactor: PresenterToInteractorProtocol?
+    var router: PresenterToRouterProtocol?
+    
+    private(set) var countGetAllCharacters = 0
+    
+    func getAllCharacters() {
+        countGetAllCharacters += 1
+    }
+}
+
 

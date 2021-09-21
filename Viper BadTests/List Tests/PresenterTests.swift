@@ -22,7 +22,6 @@ class PresenterTests: XCTestCase {
         presenter.interactor = interactor
     }
     
-    
     func testGetAllCharacters() throws {
         presenter.getAllCharacters()
         
