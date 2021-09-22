@@ -30,7 +30,13 @@ class ViewTests: XCTestCase {
         
         let firstCell = view.tableView.cellForRow(at: IndexPath(row: 0, section: 0))
         
-        XCTAssertEqual(firstCell?.textLabel?.text, testCharactersList[0].name, "Expect content to be equal")
+        guard let cellContentConfiguration = firstCell?.contentConfiguration as? UIListContentConfiguration else {
+            XCTFail("Expect contentConfiguration to be UIListContentConfiguration")
+            
+            return
+        }
+        
+        XCTAssertEqual(cellContentConfiguration.text, testCharactersList[0].name, "Expect content to be equal")
     }
     
     func testViewWillAppearDidRequestCharacterList() {

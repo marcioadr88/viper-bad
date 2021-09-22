@@ -21,7 +21,7 @@ class CharactersListViewController: UIViewController, PresenterToViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = NSLocalizedString("Breaking Viper", comment: "App title")
+        navigationItem.title = NSLocalizedString("Viper Bad", comment: "App title")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -61,8 +61,10 @@ extension CharactersListViewController: UITableViewDataSource {
         }
         
         let character = self.characters[indexPath.row]
+        var contentConfiguration = cell.defaultContentConfiguration()
+        contentConfiguration.text = character.name
         
-        cell.textLabel?.text = character.name
+        cell.contentConfiguration = contentConfiguration
         
         return cell
     }
