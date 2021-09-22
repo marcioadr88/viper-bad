@@ -13,7 +13,12 @@ class CharactersListViewController: UIViewController, PresenterToViewProtocol {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
+            tableView.refreshControl = UIRefreshControl()
         }
+    }
+    
+    var refreshControl: UIRefreshControl? {
+        return tableView?.refreshControl
     }
     
     private var characters = [Character]()
@@ -22,22 +27,32 @@ class CharactersListViewController: UIViewController, PresenterToViewProtocol {
         super.viewDidLoad()
         
         navigationItem.title = NSLocalizedString("Viper Bad", comment: "App title")
+        
+        refreshControl?.addTarget(self, action: #selector(requestData), for: .valueChanged)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter?.getAllCharacters()
+        
+        refreshControl?.beginRefreshing()
+        requestData()
     }
     
     func showCharacters(characters: [Character]) {
+        refreshControl?.endRefreshing()
         updateCharactersTableView(with: characters)
     }
     
     func showError(message: String) {
+        refreshControl?.endRefreshing()
         updateCharactersTableView(with: [])
         
         let alertController = AlertUtils.buildAlertController(title: NSLocalizedString("An error ocurred", comment: ""), message: message)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc private func requestData() {
+        presenter?.getAllCharacters()
     }
     
     private func updateCharactersTableView(with characters: [Character]) {
@@ -61,6 +76,7 @@ extension CharactersListViewController: UITableViewDataSource {
         }
         
         let character = self.characters[indexPath.row]
+        
         var contentConfiguration = cell.defaultContentConfiguration()
         contentConfiguration.text = character.name
         
